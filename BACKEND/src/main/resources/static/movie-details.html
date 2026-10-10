@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details - CineReview</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-icon">🎬</span>
+        <span>Cine<span class="logo-accent">Review</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#movies-section">Browse Movies</a></li>
+        <li><a href="add-review.html">Add Review</a></li>
+      </ul>
+
+      <div class="nav-auth" id="nav-auth-container">
+        <!-- Rendered dynamically by js/auth.js -->
+        <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container">
+    <a href="index.html" class="back-link">
+      <span>←</span> Back to All Movies
+    </a>
+
+    <!-- Movie Details Container (Loaded dynamically) -->
+    <section class="movie-details-hero" id="movie-details-hero">
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px; color: var(--text-muted);">
+        ⏳ Loading movie synopsis and ratings...
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews-anchor">
+      <div class="reviews-header">
+        <h2 class="section-title">
+          Audience Reviews <span id="reviews-count" style="font-size: 1rem; color: var(--text-dim); font-weight: 500;"></span>
+        </h2>
+        <a href="#inline-review-box" class="btn btn-primary btn-sm">+ Leave a Review</a>
+      </div>
+
+      <!-- Reviews Cards List -->
+      <div class="reviews-list" id="reviews-list">
+        <!-- Rendered dynamically by js/movie-details.js -->
+      </div>
+
+      <!-- Quick Inline Review Form Box -->
+      <div class="form-card" id="inline-review-box" style="max-width: 100%; margin: 40px 0; border: 1px solid var(--border-color);">
+        <h3 style="margin-bottom: 12px; font-size: 1.3rem; color: #fff;">✍️ Share Your Review</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+          Rate this movie and tell other film fans what you liked or disliked.
+        </p>
+
+        <form id="inline-review-form">
+          <div class="form-group">
+            <label class="form-label">Your Rating (1 to 5 Stars):</label>
+            <div class="star-rating-selector" id="star-selector">
+              <span class="star" data-value="1">★</span>
+              <span class="star" data-value="2">★</span>
+              <span class="star" data-value="3">★</span>
+              <span class="star" data-value="4">★</span>
+              <span class="star" data-value="5">★</span>
+            </div>
+            <div class="rating-text-hint" id="selected-rating-text">5/5 - Masterpiece!</div>
+          </div>
+
+          <div class="form-group">
+            <label for="inline-review-comment" class="form-label">Your Review Thoughts:</label>
+            <textarea id="inline-review-comment" class="form-textarea" placeholder="What did you think of the direction, acting, music, cinematography, and story?" required></textarea>
+          </div>
+
+          <button type="submit" id="submit-inline-review-btn" class="btn btn-primary">
+            Submit Review
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>🎬 <strong>Movie Review System</strong> • Full-Stack Web Application</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/movie-details.js"></script>
+</body>
+</html>
